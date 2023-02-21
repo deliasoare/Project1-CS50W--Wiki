@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+{% block title %}
+
+    New Page - Wiki
+
+{% endblock %}
+{% block body %}
+    {% if exists %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+            {{title}} already exists. If you want to view or edit it, <a href="/wiki/{{title}}">click here</a>.
+    </div>
+    {% endif %}
+    <form action="{% url 'encyclopedia:newpage' %}" method="post">
+        {% csrf_token %}
+        <input name="title" required style="margin: 20px 20px;"type="text" placeholder="Title">
+        <br>
+        <textarea name="content" style="width:500px; height:500px; margin: 0px 20px;"required placeholder="Content"></textarea>
+        <br>
+        <button type="submit" style="margin-left:450px;; width:90px; height:30px; font-size:9px; padding:4px; font-weight:bold; background-color: #4d90fe; box-shadow:none; color:#fff; outline:none; border:none; border-radius:2px;" >Create Page</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+     {{title}} - Search results - Wiki
+{% endblock %}
+{% block body %}
+<h1> Searching for {{ title }}</h1>
+{% if entries %}
+    Perhaps you were looking for...
+    <ul>
+            {% for entry in entries %}
+                <li> <a href="wiki/{{entry}}"> {{ entry }}</a></li>
+            {% endfor %}
+    </ul>
+{% else %}
+    There is no such file on the site.
+     Perhaps you'd like to <a href="{% url 'encyclopedia:newpage' %}">add</a> one
+{% endif %}
+{% endblock %}

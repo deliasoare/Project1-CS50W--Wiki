@@ -1,0 +1,14 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+
+    {{entryTitle}}
+
+{% endblock %}
+{% block body %}
+    <a method = "GET" href="{% url 'encyclopedia:editpage' entryTitle=entryTitle%}" name="{{entryTitle}}"> Edit Page </a>
+
+    <h1>{{entryTitle}}</h1>
+    <br>
+    {{entry |safe}}
+{% endblock %}

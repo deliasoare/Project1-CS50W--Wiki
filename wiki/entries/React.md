@@ -1,0 +1,1 @@
+React is a front-end JavaScript library.
